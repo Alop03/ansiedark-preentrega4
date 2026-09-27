@@ -5,8 +5,6 @@ function Item({ item }) {
         price,
         category,
         img,
-        stock,
-        description,
     } = item
 
     const precioFormateado = new Intl.NumberFormat("es-UY", {
@@ -34,19 +32,9 @@ function Item({ item }) {
                     {name}
                 </h2>
 
-                <p className="producto__descripcion">
-                    {description}
+                <p className="producto__precio">
+                    {precioFormateado}
                 </p>
-
-                <div className="producto__datos">
-                    <p className="producto__precio">
-                        {precioFormateado}
-                    </p>
-
-                    <p className="producto__stock">
-                        {stock} disponibles
-                    </p>
-                </div>
             </div>
         </article>
     )
