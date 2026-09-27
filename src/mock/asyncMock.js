@@ -62,7 +62,8 @@ const productos = [
     },
 ]
 
-// Simula una petición a una API con una demora de dos segundos.
+
+// Simula una petición que devuelve el catálogo completo.
 function getProducts() {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -71,4 +72,25 @@ function getProducts() {
     })
 }
 
-export { getProducts }
+// Busca una joya por su ID y simula la respuesta individual de una API.
+function getProductById(productId) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const productoEncontrado = productos.find(
+                (producto) => producto.id === productId,
+            )
+
+            if (productoEncontrado) {
+                resolve(productoEncontrado)
+            } else {
+                reject(
+                    new Error(
+                        "No se encontró la joya solicitada.",
+                    ),
+                )
+            }
+        }, 2000)
+    })
+}
+
+export { getProducts, getProductById }
